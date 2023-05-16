@@ -8,6 +8,6 @@ spring:
     database-platform: org.hibernate.dialect.MySQL57Dialect
     hibernate:
       ddl-auto: create
-    show-sql: 'true'
+    show-sql: 'false'
 server:
   port: '8088'
