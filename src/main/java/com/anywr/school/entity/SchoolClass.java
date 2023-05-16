@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -23,7 +27,6 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = PRIVATE)
 @Builder
 @Entity
-@JsonIgnoreProperties(value = { "" })
 @EqualsAndHashCode(of = "id")
 @Table(indexes = @Index(name = "class_name_index",columnList = "name"))
 public class SchoolClass {
