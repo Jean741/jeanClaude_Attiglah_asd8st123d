@@ -4,8 +4,10 @@ import com.anywr.school.dto.PaginatedStudentsResponse;
 import com.anywr.school.dto.StudentDto;
 import com.anywr.school.entity.SchoolClass;
 import com.anywr.school.entity.Student;
+import com.anywr.school.entity.Teacher;
 import com.anywr.school.repository.SchoolClassRepository;
 import com.anywr.school.repository.StudentRepository;
+import com.anywr.school.repository.TeacherRepository;
 import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -13,20 +15,24 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class StudentServiceImpl implements IStudentService{
 	
     private final StudentRepository studentRepository;
+    private final TeacherRepository teacherRepository;
     private final SchoolClassRepository schoolClassRepository;
     
     @Override
-    public PaginatedStudentsResponse getStudents(int pageNumber,
-										    	int pageSize,
-										    	String studentClass,
-										    	String teacherFullName) {
+    public PaginatedStudentsResponse getStudents(
+            int pageNumber,
+            int pageSize,
+            String studentClass,
+            String teacherFullName) {
         Page<Student> studentsFilteredAndPaginated = getStudentsFilteredAndPaginated(
         		pageNumber,
         		pageSize,
@@ -41,21 +47,23 @@ public class StudentServiceImpl implements IStudentService{
                 .build();
     }
     
-    private Page<Student> getStudentsFilteredAndPaginated(int pageNumber,
-											    		int pageSize,
-											    		String studentClass,
-											    		String teacherFullName) {
+    private Page<Student> getStudentsFilteredAndPaginated(
+            int pageNumber,
+            int pageSize,
+            String studentClass,
+            String teacherFullName) {
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
         if (!StringUtils.isEmpty(studentClass)){
             SchoolClass schoolClass = schoolClassRepository.findByName(studentClass);
-            if (!Objects.isNull(schoolClass)){
+            if (Objects.nonNull(schoolClass)){
                 return studentRepository.findByStudentClass(pageable,schoolClass);
             }
         }
-        //TODO Compleate getting students filtered by fullname feature
         if (!StringUtils.isEmpty(teacherFullName)){
-            SchoolClass schoolClass = schoolClassRepository.findByTeacher(teacherFullName);
-            if (!Objects.isNull(schoolClass)){
+			var schoolClass = teacherRepository.findByTeacherFullName(teacherFullName)
+                    .stream().findFirst()
+                        .orElse(new Teacher()).getTeacherClass();
+            if (Objects.nonNull(schoolClass)){
                 return studentRepository.findByStudentClass(pageable,schoolClass);
             }
         }
