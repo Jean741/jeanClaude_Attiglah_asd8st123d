@@ -10,3 +10,7 @@ Anywr test project
 * https://www.bezkoder.com/spring-boot-pagination-filter-jpa-pageable/
 
 * https://github.com/Jean741/VoteAppModule
+
+* https://github.com/Jean741/Gestion-Recrutement/tree/master
+
+* Chat GPt
