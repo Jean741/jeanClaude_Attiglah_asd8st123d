@@ -1,12 +1,5 @@
 package com.anywr.school;
 
-import java.util.List;
-import java.util.UUID;
-
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.anywr.school.entity.SchoolClass;
 import com.anywr.school.entity.SchoolMember;
 import com.anywr.school.entity.Student;
@@ -15,19 +8,25 @@ import com.anywr.school.repository.SchoolClassRepository;
 import com.anywr.school.repository.SchoolMemberRepository;
 import com.anywr.school.repository.StudentRepository;
 import com.anywr.school.repository.TeacherRepository;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
+import java.util.UUID;
 
 @Log4j2
 @SpringBootApplication
 @RequiredArgsConstructor
 public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunner {
-
+	
 	private final SchoolClassRepository schoolClassRepository;
 	private final SchoolMemberRepository schoolMemberRepository;
 	private final StudentRepository studentRepository;
 	private final TeacherRepository teacherRepository;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(JeanClaudeAttiglahAsd8st123dApplication.class, args);
@@ -61,5 +60,6 @@ public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunne
 				.save(new Teacher(UUID.randomUUID(), "Emma", "Hall", firstClass));
 		log.info(teacherAdams.getLastName() + teacherHall.getFirstName());
 	}
+
 
 }

@@ -1,12 +1,12 @@
 package com.anywr.school.dto;
 
-import static lombok.AccessLevel.PRIVATE;
-
-import java.util.List;
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
+
+import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Builder

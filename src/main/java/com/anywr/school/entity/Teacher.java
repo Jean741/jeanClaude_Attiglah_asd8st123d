@@ -1,10 +1,5 @@
 package com.anywr.school.entity;
 
-import static lombok.AccessLevel.PRIVATE;
-
-import java.util.Objects;
-import java.util.UUID;
-
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -14,6 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+
+import java.util.Objects;
+import java.util.UUID;
+
+import static lombok.AccessLevel.PRIVATE;
 
 @FieldDefaults(level = PRIVATE)
 @DiscriminatorValue("tch")
