@@ -38,7 +38,7 @@ public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunne
 		log.info(".................App Started.................");
 		initDataBase();
 		List<Student> students = studentRepository.findAll();
-		log.info("nombre d'étudiant {}", students.size());
+		log.info("Number of Students {}", students.size());
 	}
 
 	private void initDataBase() {
