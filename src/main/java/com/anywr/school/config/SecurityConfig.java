@@ -29,7 +29,7 @@ public class SecurityConfig {
         http
                 .csrf()
                 .disable()
-                .authorizeRequests()
+                .authorizeHttpRequests()
                 .requestMatchers("*/*/auth/*")
                 .permitAll()
                 .anyRequest()
@@ -45,7 +45,6 @@ public class SecurityConfig {
 	@Bean
 	PasswordEncoder passwordEncoder() {
 	        return new BCryptPasswordEncoder();
-		//return NoOpPasswordEncoder.getInstance();
 	}
 
 	@Bean
