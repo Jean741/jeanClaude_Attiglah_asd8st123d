@@ -14,3 +14,9 @@ Anywr test project
 * https://github.com/Jean741/Gestion-Recrutement/tree/master
 
 * Chat GPt
+
+* https://github.com/Jean741/VoteAppModule
+
+* https://stackoverflow.com/questions/28492892/hibernate-named-query-with-uuid-as-parameter
+
+* https://stackoverflow.com/questions/74927603/hibernate-query-casting-varchar-to-varbinary-results-in-unknown-column-name
