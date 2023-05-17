@@ -36,10 +36,11 @@ public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunne
 	public void run(String... args) throws Exception {
 		log.info(".................App Started.................");
 		initDataBase();
-		List<Student> students = studentRepository.findAll();
-		log.info("Number of Students {}", students.size());
 	}
 
+	/*
+	 * Init dataBase  for fast Testing
+	 */
 	private void initDataBase() {
 		SchoolClass firstClass = schoolClassRepository
 				.save(SchoolClass.builder().id(UUID.randomUUID()).name("First class").build());
@@ -51,14 +52,14 @@ public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunne
 		Student studentJon = studentRepository.save(new Student(UUID.randomUUID(), "Mickael", "Jon", firstClass));
 		Student studentAnderson = schoolMemberRepository
 				.save(new Student(UUID.randomUUID(), "Sarah", "Anderson", secondClass));
-		log.info(studentMic.getLastName());
-		log.info(studentJon.getLastName());
-		log.info(studentAnderson.getLastName());
+		log.debug(studentMic.getLastName());
+		log.debug(studentJon.getLastName());
+		log.debug(studentAnderson.getLastName());
 
 		Teacher teacherAdams = teacherRepository.save(new Teacher(UUID.randomUUID(), "Abigail", "Adams", secondClass));
 		SchoolMember teacherHall = schoolMemberRepository
 				.save(new Teacher(UUID.randomUUID(), "Emma", "Hall", firstClass));
-		log.info(teacherAdams.getLastName() + teacherHall.getFirstName());
+		log.debug(teacherAdams.getLastName() + teacherHall.getFirstName());
 	}
 
 
