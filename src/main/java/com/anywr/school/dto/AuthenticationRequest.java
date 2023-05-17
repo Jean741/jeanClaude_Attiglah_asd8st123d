@@ -1,11 +1,11 @@
 package com.anywr.school.dto;
 
+import static lombok.AccessLevel.PRIVATE;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @NoArgsConstructor

@@ -1,9 +1,7 @@
 package com.anywr.school.controller;
 
-import com.anywr.school.dao.UserDao;
-import com.anywr.school.dto.AuthenticationRequest;
-import com.anywr.school.utils.JwtUtils;
-import lombok.RequiredArgsConstructor;
+import java.util.Objects;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Objects;
+import com.anywr.school.dao.UserDao;
+import com.anywr.school.dto.AuthenticationRequest;
+import com.anywr.school.utils.JwtUtils;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/auth")

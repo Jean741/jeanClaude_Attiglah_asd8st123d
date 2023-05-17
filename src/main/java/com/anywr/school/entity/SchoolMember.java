@@ -1,5 +1,9 @@
 package com.anywr.school.entity;
 
+import static lombok.AccessLevel.PRIVATE;
+
+import java.util.UUID;
+
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
@@ -9,10 +13,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-
-import java.util.UUID;
-
-import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @NoArgsConstructor
