@@ -1,5 +1,11 @@
 package com.anywr.school;
 
+import java.util.UUID;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import com.anywr.school.entity.SchoolClass;
 import com.anywr.school.entity.SchoolMember;
 import com.anywr.school.entity.Student;
@@ -8,14 +14,9 @@ import com.anywr.school.repository.SchoolClassRepository;
 import com.anywr.school.repository.SchoolMemberRepository;
 import com.anywr.school.repository.StudentRepository;
 import com.anywr.school.repository.TeacherRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
-import java.util.UUID;
 
 @Log4j2
 @SpringBootApplication
@@ -34,7 +35,7 @@ public class JeanClaudeAttiglahAsd8st123dApplication implements CommandLineRunne
 
 	@Override
 	public void run(String... args) throws Exception {
-		log.info(".................App Started.................");
+		log.info(".................JeanClaudeAttiglahAsd8st123dApplication App Started.................");
 		initDataBase();
 	}
 

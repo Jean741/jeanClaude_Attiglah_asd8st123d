@@ -1,15 +1,19 @@
 package com.anywr.school.entity;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.*;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.GenerationTime;
+import static lombok.AccessLevel.PRIVATE;
 
 import java.util.Objects;
 import java.util.UUID;
 
-import static lombok.AccessLevel.PRIVATE;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 @FieldDefaults(level = PRIVATE)
 @DiscriminatorValue("tch")

@@ -1,9 +1,10 @@
 package com.anywr.school.repository;
 
-import com.anywr.school.entity.SchoolMember;
+import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
+import com.anywr.school.entity.SchoolMember;
 
 public interface SchoolMemberRepository extends JpaRepository<SchoolMember, UUID> {
 }
