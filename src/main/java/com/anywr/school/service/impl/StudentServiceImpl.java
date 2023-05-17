@@ -1,7 +1,8 @@
-package com.anywr.school.service;
+package com.anywr.school.service.impl;
 
 import java.util.Objects;
 
+import com.anywr.school.service.IStudentService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class StudentServiceImpl implements IStudentService{
+public class StudentServiceImpl implements IStudentService {
 	
     private final StudentRepository studentRepository;
     private final TeacherRepository teacherRepository;

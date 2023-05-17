@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -20,8 +21,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JwtUtils {
 
-	private static final String SECRET_KEY = "jwtSecretKey";
-	private static final long EXPIRATION_DATE = 86400;
+	@Value("${application.security.jwt.secret-key}")
+	private String secretKey ;
+
+	@Value("${application.security.jwt.expiration}")
+	private long jwtExpiration;
 	
 	public String generateToken(UserDetails user) {
 		Map<String, Object> claims = new HashMap<>();
@@ -32,17 +36,17 @@ public class JwtUtils {
 		}
 		claims.put("authorities",authoritiesNames);
 		claims.put("username", user.getUsername());
-		claims.put("exp", new Date(System.currentTimeMillis()+EXPIRATION_DATE*1000));
-		return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, SECRET_KEY).compact();
+		claims.put("exp", new Date(System.currentTimeMillis()+ jwtExpiration *1000));
+		return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, secretKey).compact();
 	}
 	
 	public String extractUsername(String token) {
-		Claims claims =  Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+		Claims claims =  Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 		return (String) claims.get("username");
 	}
 	
 	private Date extractExpirationDate(String token) {
-		Claims claims =  Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+		Claims claims =  Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 		log.info("Date {}",new Date((long)claims.get("exp")));
 		return new Date((long)claims.get("exp")) ;
 	}
